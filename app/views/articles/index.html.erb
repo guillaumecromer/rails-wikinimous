@@ -1,0 +1,10 @@
+<h1>Articles List</h1>
+
+<% @articles.each do |article| %>
+  <%= link_to article.title, "/articles/#{article['id']}" %>
+  <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, article_path(article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></p>
+<% end %>
+
+  <p><%= link_to "Add a new article", new_article_path %></p>
